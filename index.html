@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ncheck()
+        {
+        var nc,nv;
+        nc=document.getElementById("n").value;
+        nc=nc.trim();
+        nv=/^[a-zA-Z ]+$/;
+        if(!nc.match(nv)){
+        document.getElementById("ns").innerHTML="***name check***";
+        return 'n';
+        }
+        else{
+        document.getElementById("ns").innerHTML=" ";
+        
+        return 'y';
+        }
+        }
+        
+        function echeck()
+        {
+        var ec,ev;
+        ec=document.getElementById("e").value;
+        ec=ec.trim();
+        ev=/^[0-9a-zA-Z._-]+\@[a-zA-Z]+\.[a-zA-Z.]{2,6}$/;
+        if(!ec.match(ev)){
+        document.getElementById("s").innerHTML="***check email id***";
+        return 'n';
+        }
+        else{
+        document.getElementById("s").innerHTML=" ";
+        
+        return 'y';
+        }
+        }
+        
+        function phcheck()
+        {
+        var pc,pv;
+        pc=document.getElementById("p").value;
+        pc=pc.trim();
+        pv=/^[0-9]{10,10}$/;
+        if(!pc.match(pv)){
+        document.getElementById("s1").innerHTML="***incorrect phone no***";
+        return 'n';
+        }
+        else{
+        document.getElementById("s1").innerHTML=" ";
+        
+        return 'y';
+        }
+        }
+        
+        function acheck()
+        {
+        var a,al;
+        a=document.getElementById("t1").value;
+        a=a.trim();
+        al=a.length;
+        if(a<10){
+        document.getElementById("as").innerHTML="***address***";
+        return 'n';
+        }
+        else{
+        document.getElementById("as").innerHTML=" ";
+        return 'y';
+        }
+        }
+        
+        function sub()
+        {
+            n=document.getElementById("n").value;
+            e=document.getElementById("e").value;
+            p=document.getElementById("p").value;
+            d=document.getElementById("d").value;
+            a=document.getElementById("t1").value;
+            q=document.getElementById("q").value;
+            
+            document.getElementById("t2").value="name "+n;
+            document.getElementById("t2").value+="\n email "+e;
+            document.getElementById("t2").value+="\n phone "+p;
+            document.getElementById("t2").value+="\n date "+d;
+            document.getElementById("t2").value+="\n address "+a;
+            document.getElementById("t2").value+="\n qualification "+q;
+            
+            
+            
+        }
+        </script>
+       
+</head>
+
+    <div id="a1">
+        <body>
+        <form>
+    Name:-<input type="text" id="n" onblur="ncheck()"><span id="ns" 
+style="color:red"></span><br><br>
+Email Id:-<input type="text" id="e" onblur="echeck()"><span id="s" 
+style="color:red"></span><br><br>
+Phone no:-<input type="text" id="p" maxlength="10" onblur="phcheck()"><span id="s1" 
+style="color:red"></span><br><br>
+Date Of Birth:-<input type="date" id="d"><br><br>
+Gender:-<br><br>
+<input type="radio" name="g" id="g1">Male
+<input type="radio" name="g" id="g2">Female <span id="gs" style="color:red"></span><br><br>
+Hobby<br><br>
+Singing<input type="checkbox" name="h" id="h1">
+Dancing<input type="checkbox" name="h" id="h2">
+Cricket<input type="checkbox" name="h" id="h3"><span id="hs" style="color:red"></span><br><br>
+Qualification:-<br><br>
+<select id="q">
+<option value="q" id="s1">--select--</option>
+<option value="q" id="s2">matriculation</option>
+<option value="q" id="s3">intermediate</option>
+<option value="q" id="s4">graduation</option>
+<option value="q" id="s5">post-graduation</option>
+</select><span id="qs" style="color:red"></span><br><br>
+Address:-<br><br><textarea rows="10" cols="50" id="t1" onblur="acheck()"></textarea><span id="as" style="color:red"></span><br><br>
+<button onclick="sub()">SUBMIT</button><br><br>
+GET DETAILS<br><br>
+<textarea rows="15" cols="55" readonly id="t2"></textarea>
+</form>
+</body></div>
+</html>
